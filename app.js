@@ -33,7 +33,12 @@ bot.on("message", (msg) => {
   if (msg.text.toString().toLocaleLowerCase().includes("کابل")) {
     bot.sendMessage(msg.chat.id, "از کدام بخیش میخواهید؟", {
       reply_markup: {
-        keyboard: [["میوه جات", "سبزیجات"], ["مواد خوراکه"], [" گوشت و تیل"]],
+        keyboard: [
+          ["میوه جات", "سبزیجات"],
+          ["مواد خوراکه"],
+          [" گوشت"],
+          ["تیل"],
+        ],
       },
     });
   }
@@ -77,7 +82,7 @@ bot.on("message", (msg) => {
         ],
       },
     });
-  } else if (msg.text.toString().toLowerCase().includes("گوشت و تیل")) {
+  } else if (msg.text.toString().toLowerCase().includes("گوشت")) {
     bot.sendMessage(msg.chat.id, "از کدام نوع گوشت و تیل میخواهید؟", {
       reply_markup: {
         inline_keyboard: [
@@ -88,6 +93,15 @@ bot.on("message", (msg) => {
             },
             {text: "گوشت گاو", callback_data: "گوشت گاو فی کیلو ۳۸۰ افغانی"},
             {text: "گوشت مرغ ", callback_data: "گوشت مرغ  فی کیلو ۲۳۰ افغانی"},
+          ],
+        ],
+      },
+    });
+  } else if (msg.text.toString().toLowerCase().includes("تیل")) {
+    bot.sendMessage(msg.chat.id, "از کدام نوع تیل میخواهید؟", {
+      reply_markup: {
+        inline_keyboard: [
+          [
             {text: "تیل دیزل ", callback_data: "تیل دیزل فی لیتر ۱۱۰ افغانی"},
             {text: "تیل پطرول ", callback_data: "تیل پطرول فی لیتر ۸۴ افغانی"},
           ],
@@ -127,5 +141,3 @@ const inlineKeyboard = {
     ],
   },
 };
-
-
