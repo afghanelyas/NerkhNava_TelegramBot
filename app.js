@@ -21,6 +21,12 @@ bot.onText(/\/start/, (msg) => {
     },
   });
 });
+bot.onText(/\/help/, (msg) => {
+  bot.sendMessage(
+    msg.chat.id,
+    "این نرخ نامه به اساس حکم شماره ۶۰۲ مورخ ۱۴۰۲ مقام عالی ریاست  الوزاه امارت اسلامی افغانستان میباشد."
+  );
+});
 
 bot.on("message", (msg) => {
   const chatId = msg.chat.id;
@@ -122,28 +128,4 @@ const inlineKeyboard = {
   },
 };
 
-// Keyboard layout for requesting phone number access
-const requestPhoneKeyboard = {
-  reply_markup: {
-    one_time_keyboard: true,
-    keyboard: [
-      [
-        {
-          text: "My phone number",
-          request_contact: true,
-          one_time_keyboard: true,
-        },
-      ],
-      ["Cancel"],
-    ],
-  },
-};
 
-// Listener (handler) for retrieving phone number
-bot.onText(/\/phone/, (msg) => {
-  bot.sendMessage(
-    msg.chat.id,
-    "Can we get access to your phone number?",
-    requestPhoneKeyboard
-  );
-});
